@@ -12,19 +12,18 @@ tagging_three:
   taggable: entry_one (Entry)
   context: tags
   tag: drowning
-  
+
 tagging_four:
   taggable: entry_two (Entry)
   context: tags
   tag: swimming
 
-tagging_four:
+tagging_five:
   taggable: entry_two (Entry)
   context: tags
   tag: sailing
 
-tagging_five:
+tagging_six:
   taggable: entry_three (Entry)
   context: tags
   tag: drowning
-

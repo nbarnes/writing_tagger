@@ -1,4 +1,5 @@
 <%= @tag %>
+</br>
 <% @entries.each do |entry| %>
 <div class='entry'>
   <%= simple_format entry.title, { class: 'entry-title' }, { wrapper_tag: 'div' } %>

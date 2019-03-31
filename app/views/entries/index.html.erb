@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Back to search', landing_page_path %>
+</br>
+<%= @includes %>
+</br>
+<%= @excludes %>
+
 <h1>Entries</h1>
   </br>
   <% @entries.each do |entry| %>

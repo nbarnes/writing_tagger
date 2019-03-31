@@ -3,7 +3,24 @@ class EntriesController < ApplicationController
 
   # GET /entries
   def index
-    @entries = Entry.all
+    if params[:search_terms].empty?
+      @entries = Entry.all
+    else
+      terms = params[:search_terms].split(' ')
+      @includes = terms.select do |term|
+        term.chr != '-'
+      end
+      @entries = Entry.tagged_with(@includes)
+      @excludes = terms.select do |term|
+        term.chr == '-'
+      end.map do |term|
+        term[1..-1]
+      end
+      unless @excludes.empty?
+        @entries = Entry.tagged_with(@excludes, exclude: true) 
+      end
+    end
+    
   end
 
   # GET /entries/1
