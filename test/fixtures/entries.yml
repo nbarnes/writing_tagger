@@ -1,14 +1,90 @@
 entry_one:
-  title: 'Lorem ipsum'
-  content: 'Pellentesque in nisi non ex tempus luctus. Nam justo risus, dictum eget sem nec, vehicula congue nisl. Duis lectus odio, viverra a leo ac, tristique scelerisque lectus. Vestibulum nec ante rutrum, ultrices felis in, laoreet ipsum. Proin varius massa et fermentum tincidunt. Donec bibendum luctus interdum. Aenean orci nibh, ultrices id tempor eget, pulvinar in orci. Curabitur auctor finibus ante id suscipit. Maecenas eget sapien nulla. Aliquam vestibulum elementum magna, id placerat mauris venenatis vitae. Phasellus velit ligula, eleifend sed dignissim quis, tristique quis tellus./n
-  Nullam ut nisi hendrerit, dictum tellus sit amet, tincidunt diam. Maecenas iaculis libero tortor, eget elementum neque vulputate ac. Sed pulvinar eget enim nec egestas. Nunc bibendum dui dui, id rhoncus enim pharetra id. Donec pulvinar felis turpis, nec efficitur ipsum varius vitae. Suspendisse faucibus nisl leo, eget pharetra leo ullamcorper eget. Sed a dui vitae tellus consequat fermentum. Nulla ac dapibus magna. Sed vel dignissim mauris. In tristique, eros vitae volutpat fermentum, nunc odio suscipit lacus, pretium vestibulum elit lectus sed elit. Sed in nulla lobortis, laoreet lacus eu, pellentesque urna. Quisque lectus massa, viverra pretium maximus ac, auctor et odio. Integer vitae dapibus ante, vitae dapibus sapien. Sed et sollicitudin ante. '
+  title: |+
+    The Absurdity of Sexual identity: The postcultural paradigm of discourse in the works of Gaiman
+  description: |+
+    1. Consensuses of collapse
+  notes: |+
+    This is a note
+    This is also a note
+
+    This is another note
+  content: >+
+    The characteristic theme of the works of Gaiman is not, in fact, narrative,
+    but neonarrative. It could be said that Marx promotes the use of dialectic
+    construction to deconstruct hierarchy. Lyotard uses the term ‘textual
+    appropriation’ to denote the failure, and eventually the defining
+    characteristic, of postconceptual society.
+
+
+    In the works of Gaiman, a predominant concept is the distinction between
+    figure and ground. In a sense, Parry[1] holds that we have
+    to choose between the neosemioticist paradigm of reality and capitalist
+    narrative. Foucault uses the term ‘the postcultural paradigm of discourse’ to
+    denote the common ground between sexual identity and society.
+
+
+    "Class is part of the futility of sexuality," says Sontag. But the subject
+    is contextualised into a dialectic construction that includes consciousness as
+    a paradox. The genre, and hence the defining characteristic, of textual
+    appropriation depicted in Gaiman’s Death: The Time of Your Life is also
+    evident in Stardust, although in a more self-referential sense.
 
 entry_two:
-  title: 'Lorem ipsum'
-  content: 'Pellentesque in nisi non ex tempus luctus. Nam justo risus, dictum eget sem nec, vehicula congue nisl. Duis lectus odio, viverra a leo ac, tristique scelerisque lectus. Vestibulum nec ante rutrum, ultrices felis in, laoreet ipsum. Proin varius massa et fermentum tincidunt. Donec bibendum luctus interdum. Aenean orci nibh, ultrices id tempor eget, pulvinar in orci. Curabitur auctor finibus ante id suscipit. Maecenas eget sapien nulla. Aliquam vestibulum elementum magna, id placerat mauris venenatis vitae. Phasellus velit ligula, eleifend sed dignissim quis, tristique quis tellus.
-  Nullam ut nisi hendrerit, dictum tellus sit amet, tincidunt diam. Maecenas iaculis libero tortor, eget elementum neque vulputate ac. Sed pulvinar eget enim nec egestas. Nunc bibendum dui dui, id rhoncus enim pharetra id. Donec pulvinar felis turpis, nec efficitur ipsum varius vitae. Suspendisse faucibus nisl leo, eget pharetra leo ullamcorper eget. Sed a dui vitae tellus consequat fermentum. Nulla ac dapibus magna. Sed vel dignissim mauris. In tristique, eros vitae volutpat fermentum, nunc odio suscipit lacus, pretium vestibulum elit lectus sed elit. Sed in nulla lobortis, laoreet lacus eu, pellentesque urna. Quisque lectus massa, viverra pretium maximus ac, auctor et odio. Integer vitae dapibus ante, vitae dapibus sapien. Sed et sollicitudin ante. '
+  title: |+
+    Capitalist situationism and socialist realism
+  description: |+
+    2. Socialist realism and Debordist situation
+  notes: |+
+    This is a note
+    This is also a note
+
+    This is another note
+  content: >+
+    “Class is responsible for the status quo,” says Lyotard; however, according
+    to Werther[2] , it is not so much class that is responsible
+    for the status quo, but rather the dialectic, and eventually the genre, of
+    class. Thus, Bataille uses the term ‘Debordist situation’ to denote a textual
+    whole. If capitalist situationism holds, the works of Joyce are an example of
+    self-sufficient libertarianism.
+
+
+    Therefore, a number of discourses concerning socialist realism may be
+    revealed. Marx promotes the use of Debordist situation to attack society.
+
+
+    But the subject is interpolated into a predeconstructive paradigm of
+    narrative that includes language as a reality. An abundance of theories
+    concerning the meaninglessness, and some would say the futility, of dialectic
+    narrativity exist. 
 
 entry_three:
-  title: 'Lorem ipsum'
-  content: 'Pellentesque in nisi non ex tempus luctus. Nam justo risus, dictum eget sem nec, vehicula congue nisl. Duis lectus odio, viverra a leo ac, tristique scelerisque lectus. Vestibulum nec ante rutrum, ultrices felis in, laoreet ipsum. Proin varius massa et fermentum tincidunt. Donec bibendum luctus interdum. Aenean orci nibh, ultrices id tempor eget, pulvinar in orci. Curabitur auctor finibus ante id suscipit. Maecenas eget sapien nulla. Aliquam vestibulum elementum magna, id placerat mauris venenatis vitae. Phasellus velit ligula, eleifend sed dignissim quis, tristique quis tellus.
-  Nullam ut nisi hendrerit, dictum tellus sit amet, tincidunt diam. Maecenas iaculis libero tortor, eget elementum neque vulputate ac. Sed pulvinar eget enim nec egestas. Nunc bibendum dui dui, id rhoncus enim pharetra id. Donec pulvinar felis turpis, nec efficitur ipsum varius vitae. Suspendisse faucibus nisl leo, eget pharetra leo ullamcorper eget. Sed a dui vitae tellus consequat fermentum. Nulla ac dapibus magna. Sed vel dignissim mauris. In tristique, eros vitae volutpat fermentum, nunc odio suscipit lacus, pretium vestibulum elit lectus sed elit. Sed in nulla lobortis, laoreet lacus eu, pellentesque urna. Quisque lectus massa, viverra pretium maximus ac, auctor et odio. Integer vitae dapibus ante, vitae dapibus sapien. Sed et sollicitudin ante. '
+  title: |+
+    The Burning House: Semiotic discourse and preconstructivist modern
+    theory
+  description: |+
+    3. Fellini and preconstructivist modern theory
+  notes: |+
+    This is a note
+    This is also a note
+
+    This is another note
+  content: >+
+    The characteristic theme of the works of Fellini is the collapse of
+    neomaterialist society. However, Lacan suggests the use of Debordist image to
+    challenge and analyse culture. In Satyricon, Fellini deconstructs
+    dialectic discourse; in La Dolce Vita he reiterates semiotic discourse.
+
+
+    If one examines preconstructivist modern theory, one is faced with a choice:
+    either reject semiotic discourse or conclude that art is fundamentally elitist.
+    It could be said that Foucault promotes the use of textual theory to
+    deconstruct the status quo. Marx uses the term ‘semiotic discourse’ to denote
+    the role of the participant as reader.
+
+
+    The primary theme of Abian’s[7] model of dialectic
+    discourse is the difference between sexual identity and class. In a sense, the
+    destruction/creation distinction prevalent in Fellini’s 8 1/2 is also
+    evident in La Dolce Vita, although in a more postcapitalist sense. If
+    semiotic discourse holds, we have to choose between dialectic discourse and
+    precultural theory. 

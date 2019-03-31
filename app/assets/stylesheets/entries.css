@@ -3,12 +3,19 @@
   They will automatically be included in application.css.
 */
 
+.entry {
+  max-width: 50em;
+}
+
 .entry-title {
   font-size: 130%;
   font-weight: bold;
 }
 
-.entry-content {
-  width: 80em;
-  word-wrap: break-word;
+.notes-and-content {
+  display: flex;
+}
+
+#entry_notes {
+  margin-right: 10px;
 }

@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def index
-    @tags = Tag.all
+    @tags = ActsAsTaggableOn::Tag.all
   end
   def show
     @tag = params[:tag]

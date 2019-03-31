@@ -1,24 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Entries</h1>
-
+  </br>
   <% @entries.each do |entry| %>
-    <div class='entry-title'>
-      <%= entry.title %>
-    </div>
-    <div class='entry-content'>
-      <%= word_wrap entry.content %></br>
-    </div>
-    <b>Tags:</b>
-    <% entry.tag_list.each do |tag| %>
-      <%= link_to tag, tag_path(tag) %>
-    <% end %>
-    </br>
-    <%= link_to 'Show', entry %> |
-    <%= link_to 'Edit', edit_entry_path(entry) %> |
-    <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </br>
-    </br>
+    <%= render 'entry', entry: entry %>
   <% end %>
 
 

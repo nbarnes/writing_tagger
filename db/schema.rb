@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2019_03_24_222451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.string "description"
+    t.text "notes"
     t.text "content"
   end
 

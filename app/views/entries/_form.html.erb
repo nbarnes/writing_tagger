@@ -12,13 +12,23 @@
   <% end %>
 
   <%= form.label :title %>
-  <%= form.text_field :title %>
+  <%= form.text_field :title, size: 90 %>
   </br>
-  <%= form.label :content %>
-  <%= form.text_area :content, cols: 80, rows: 20 %>
+  <%= form.label :description %>
+  <%= form.text_field :description, size: 90 %>
   </br>
+  <div class="notes-and-content">
+    <div class="notes">
+      <%= form.label :notes %>
+      <%= form.text_area :notes, cols: 20, rows: 20 %>
+    </div>
+    <div class="content">
+      <%= form.label :content %>
+      <%= form.text_area :content, cols: 60, rows: 20 %>
+    </div>
+  </div>
   <%= form.label :tag_list %>
-  <%= form.text_field :tag_list %>
+  <%= form.text_field :tag_list, size: 50 %>
 
   <div class="actions">
     <%= form.submit %>

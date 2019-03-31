@@ -53,6 +53,6 @@ class EntriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def entry_params
-      params.fetch(:entry, {}).permit(:title, :content, :tag_list)
+      params.fetch(:entry, {}).permit(:title, :description, :notes, :content, :tag_list)
     end
 end

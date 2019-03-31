@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: "static#landing_page"
   resources :entries
   get 'tags/', to: 'tags#index'
-  get 'tags/:tag', to: 'tags#show'
+  get 'tags/:tag', to: 'tags#show', as: 'tag'
 end
