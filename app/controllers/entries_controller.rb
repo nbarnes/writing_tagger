@@ -4,7 +4,6 @@ class EntriesController < ApplicationController
   # GET /entries
   def index
     @entries = Entry.all
-    binding.pry
     unless params[:content_search].blank?
       @entries = Entry.search_for params[:content_search]
     end
@@ -25,7 +24,6 @@ class EntriesController < ApplicationController
         @entries = @entries.tagged_with(@excludes, exclude: true) 
       end
     end
-    
   end
 
   # GET /entries/1
