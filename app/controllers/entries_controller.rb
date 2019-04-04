@@ -3,10 +3,10 @@ class EntriesController < ApplicationController
 
   # GET /entries
   def index
-    if params[:search_terms].empty?
+    if params[:tag_search].empty?
       @entries = Entry.all
     else
-      terms = params[:search_terms].split(' ')
+      terms = params[:tag_search].split(' ')
       @includes = terms.select do |term|
         term.chr != '-'
       end
@@ -17,7 +17,7 @@ class EntriesController < ApplicationController
         term[1..-1]
       end
       unless @excludes.empty?
-        @entries = Entry.tagged_with(@excludes, exclude: true) 
+        @entries = @entries.tagged_with(@excludes, exclude: true) 
       end
     end
     

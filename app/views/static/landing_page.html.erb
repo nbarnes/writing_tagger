@@ -1,9 +1,11 @@
 <%= form_with url: entries_path, method: :get, local: true do |form| %>
-  Tag Search: <%= form.text_field :search_terms, size: 63 %>
+  Content Search: </br> <%= form.text_area :content_search, cols: 68, rows: 5 %>
+  </br>
+  Tag Search: <%= form.text_field :tag_search, size: 63 %>
   </br>
   (separate tags with spaces, put a - in front of tags to exclude, don't use commas)
   </br>
   <div class="actions">
-    <%= form.submit "Search On Tags" %>
+    <%= form.submit "Search" %>
   </div>
 <% end %>
