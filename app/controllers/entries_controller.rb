@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
 
   # GET /entries
   def index
-    if params[:tag_search].empty?
+    if params[:tag_search].blank?
       @entries = Entry.all
     else
       terms = params[:tag_search].split(' ')
