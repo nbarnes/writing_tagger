@@ -7,6 +7,10 @@
   max-width: 50em;
 }
 
+.entry_body {
+  padding-left: 20px;
+}
+
 .entry-title {
   font-size: 130%;
   font-weight: bold;

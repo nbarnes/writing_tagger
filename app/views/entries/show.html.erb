@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Return to Index', entries_path %></br></br>
+
 <div class='entry'>
   <%= simple_format @entry.title, { class: 'entry-title' }, { wrapper_tag: 'div' } %>
     <b>
