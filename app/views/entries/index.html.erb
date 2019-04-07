@@ -2,12 +2,17 @@
 
 <%= link_to 'Back to search', landing_page_path %>
 </br>
-<%= @includes %>
-</br>
-<%= @excludes %>
-
-<h1>Entries</h1>
+<h1>
+  <% unless @includes.blank? %>
+    Includes: <%= @includes.join(', ') %>
+  <% end %>
   </br>
+  <% unless @excludes.blank? %>
+    Excludes: <%= @excludes.join(', ') %>
+  <% end %>
+</h1>
+  </br>
+<h1>Entries</h1>
   <% @entries.each do |entry| %>
     <div class='entry'>
       <%= simple_format entry.title, { class: 'entry-title' }, { wrapper_tag: 'div' } %>

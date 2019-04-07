@@ -21,7 +21,7 @@
 }
 
 .show_notes {
-  border: 5px inset rgb(188, 236, 188);
+  border: 5px inset rgb(211, 255, 211);
   padding: 3px;
-  background: rgb(203, 234, 247);
+  background: rgb(224, 245, 255);
 }
