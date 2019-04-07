@@ -19,3 +19,9 @@
 #entry_notes {
   margin-right: 10px;
 }
+
+.show_notes {
+  border: 5px inset rgb(188, 236, 188);
+  padding: 3px;
+  background: rgb(203, 234, 247);
+}
