@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2019_03_24_222451) do
     t.string "description"
     t.text "notes"
     t.text "content"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

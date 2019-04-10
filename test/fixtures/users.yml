@@ -1,1 +1,11 @@
-one: {}
+tony:
+  email: ironman@stark.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+steve:
+  email: captain@army.gov
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+thor:
+  email: odinson@asgard.org
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

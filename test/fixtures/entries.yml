@@ -1,4 +1,5 @@
 entry_one:
+  user: tony
   title: |+
     The Absurdity of Sexual identity: The postcultural paradigm of discourse in the works of Gaiman
   description: |+
@@ -30,6 +31,7 @@ entry_one:
     evident in Stardust, although in a more self-referential sense.
 
 entry_two:
+  user: tony
   title: |+
     Capitalist situationism and socialist realism
   description: |+
@@ -58,6 +60,7 @@ entry_two:
     narrativity exist. 
 
 entry_three:
+  user: steve
   title: |+
     The Burning House: Semiotic discourse and preconstructivist modern
     theory

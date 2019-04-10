@@ -7,6 +7,7 @@ class CreateEntries < ActiveRecord::Migration[5.2]
       t.string :description
       t.text :notes
       t.text :content
+      t.belongs_to :user
     end
 
   end
