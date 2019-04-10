@@ -1,3 +1,4 @@
+<script>window.onbeforeunload = function() { return true; };</script>
 <%= form_with model: entry, local: true do |form| %>
   <% if entry.errors.any? %>
     <div id="error_explanation">
