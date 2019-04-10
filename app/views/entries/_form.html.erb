@@ -1,4 +1,12 @@
-<script>window.onbeforeunload = function() { return true; };</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    window.onbeforeunload = function() { return true; };
+    document.getElementsByTagName("form")[0].onsubmit = function(e) {
+      window.onbeforeunload = null;
+      return true;
+    };
+  });
+</script>
 <%= form_with model: entry, local: true do |form| %>
   <% if entry.errors.any? %>
     <div id="error_explanation">
