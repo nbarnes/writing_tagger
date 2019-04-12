@@ -32,6 +32,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
+    redirect_to entries_path, notice: 'You must be logged in to create an entry.' and return unless current_user
     @entry = Entry.new
   end
 
@@ -43,7 +44,7 @@ class EntriesController < ApplicationController
 
   # POST /entries
   def create
-    render status: :unauthorized and return unless current_user
+    head :unauthorized and return unless current_user
     @entry = Entry.new(entry_params.merge(user_id: current_user.id))
     if @entry.save
       redirect_to @entry, notice: 'Entry was successfully created.'
@@ -55,7 +56,7 @@ class EntriesController < ApplicationController
   # PATCH/PUT /entries/1
   def update
     @entry = Entry.find(params[:id])
-    render status: :unauthorized and return unless @entry.user == current_user
+    head :unauthorized and return unless @entry.user == current_user
     if @entry.update(entry_params)
       redirect_to @entry, notice: 'Entry was successfully updated.'
     else
@@ -66,10 +67,9 @@ class EntriesController < ApplicationController
   # DELETE /entries/1
   def destroy
     @entry = Entry.find(params[:id])
-    redirect_to entries_url, notice: 'Cannot destroy unowned resource.' and return unless @entry.user == current_user
+    head :unauthorized and return unless @entry.user == current_user
     @entry.destroy
-    redirect_to entries_url, notice: 'Entry was successfully destroyed.'
-    
+    redirect_to entries_path, notice: 'Entry was successfully destroyed.'
   end
 
   private
