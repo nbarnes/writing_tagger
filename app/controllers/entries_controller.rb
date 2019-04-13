@@ -1,9 +1,9 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   # GET /entries
   def index
-    @entries = Entry.all
+    @entries = [] and return unless current_user
+    @entries = Entry.where(user_id: current_user.id)
     unless params[:content_search].blank?
       @entries = Entry.search_for params[:content_search]
     end
@@ -27,7 +27,9 @@ class EntriesController < ApplicationController
   end
 
   # GET /entries/1
-  def show  
+  def show
+    @entry = Entry.find(params[:id])
+    head :unauthorized and return unless @entry.user == current_user
   end
 
   # GET /entries/new
@@ -39,7 +41,7 @@ class EntriesController < ApplicationController
   # GET /entries/1/edit
   def edit
     @entry = Entry.find(params[:id])
-    render status: :unauthorized and return unless @entry.user == current_user
+    head :unauthorized and return unless @entry.user == current_user
   end
 
   # POST /entries
@@ -73,10 +75,6 @@ class EntriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_entry
-      @entry = Entry.find(params[:id])
-    end
 
     # Only allow a trusted parameter "white list" through.
     def entry_params

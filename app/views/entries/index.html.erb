@@ -1,14 +1,9 @@
-<p id="notice"><%= notice %></p>  
-
-<%= link_to 'Back to search', landing_page_path %>
-</br>
-</br>
-<%= link_to 'New Entry', new_entry_path %>
+<p id="notice"><%= notice %></p>
 <h1>
   <% unless @includes.blank? %>
     Includes: <%= @includes.join(', ') %>
+    </br>
   <% end %>
-  </br>
   <% unless @excludes.blank? %>
     Excludes: <%= @excludes.join(', ') %>
   <% end %>
