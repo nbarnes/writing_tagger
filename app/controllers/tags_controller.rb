@@ -4,6 +4,6 @@ class TagsController < ApplicationController
   end
   def show
     @tag = params[:tag]
-    @entries = Entry.tagged_with @tag
+    @entries = Entry.where(user_id: current_user.id).tagged_with @tag
   end
 end
