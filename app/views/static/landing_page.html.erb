@@ -1,11 +1,17 @@
-<%= form_with url: entries_path, method: :get, local: true do |form| %>
-  Content Search: </br> <%= form.text_area :content_search, cols: 68, rows: 5 %>
-  </br>
-  Tag Search: <%= form.text_field :tag_search, size: 63 %>
-  </br>
-  (separate tags with spaces, put a - in front of tags to exclude, don't use commas)
-  </br>
-  <div class="actions">
-    <%= form.submit "Search" %>
-  </div>
+<% if current_user %>
+  <%= form_with url: entries_path, method: :get, local: true do |form| %>
+    Content Search: </br> <%= form.text_area :content_search, cols: 68, rows: 5 %>
+    </br>
+    Tag Search: <%= form.text_field :tag_search, size: 63 %>
+    </br>
+    (separate tags with spaces, put a - in front of tags to exclude, don't use commas)
+    </br>
+    <div class="actions">
+      <%= form.submit "Search" %>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> or
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  to use search
 <% end %>
