@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_222451) do
+ActiveRecord::Schema.define(version: 2019_04_25_161037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,29 @@ ActiveRecord::Schema.define(version: 2019_03_24_222451) do
     t.text "content"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "project_entries", force: :cascade do |t|
+    t.bigint "entry_id"
+    t.bigint "project_id"
+    t.index ["entry_id"], name: "index_project_entries_on_entry_id"
+    t.index ["project_id"], name: "index_project_entries_on_project_id"
+  end
+
+  create_table "project_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_project_users_on_project_id"
+    t.index ["user_id"], name: "index_project_users_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "description"
+    t.bigint "owner_id"
+    t.index ["owner_id"], name: "index_projects_on_owner_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
