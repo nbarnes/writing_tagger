@@ -14,10 +14,18 @@ entries = Array.new(80) do
   e = Entry.create({ 
     title: Faker::Book.title,
     description: Faker::Lorem.sentence,
-    content: Faker::Lorem.paragraph(2),
-    notes: Faker::Lorem.sentences.join('\n\n'),
+    content: Faker::Lorem.paragraphs(2).join("\n\n"),
+    notes: Faker::Lorem.sentences.join("\n\n"),
     tag_list: tags.sample(3).join(' ')
   })
   e.user = users.sample
   e.save!
+  e
+end
+projects = Array.new(20) do
+  p = Project.create({ title: Faker::Book.title, description: Faker::Lorem.sentence, owner: users.sample })
+  p.users << users.sample(3)
+  p.entries << entries.sample(5)
+  p.save!
+  p
 end

@@ -4,27 +4,21 @@
 
 <div class='entry'>
   <%= simple_format @entry.title, { class: 'entry-title' }, { wrapper_tag: 'div' } %>
-    <b>
-      <%= simple_format @entry.description %>
-    </b>
-    <div class='entry-content'>
-      <%= simple_format @entry.content %>
+  <b><%= simple_format @entry.description %></b>
+  <%= simple_format @entry.content, class: 'entry-content' %>
+  <% unless @entry.notes.blank? %>
+    <div class='entry-notes'>
+      <%= simple_format @entry.notes %>
     </div>
-    <% unless @entry.notes.blank? %>
-      <div class='show_notes'>
-        <%= simple_format @entry.notes %>
-      </div>
-    <% end %>
-    <b>Tags:</b>
-    <% @entry.tag_list.each do |tag| %>
-      <%= link_to tag, tag_path(tag) %>
-    <% end %>
-    </br>
-    <%= link_to 'Show', @entry %> |
-    <%= link_to 'Edit', edit_entry_path(@entry) %> |
-    <%= link_to 'Destroy', @entry, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </br>
-    </br>
+  <% end %>
+  <b>Tags:</b>
+  <% @entry.tag_list.each do |tag| %>
+    <%= link_to tag, tag_path(tag) %>
+  <% end %>
+  </br>
+  </br>
+  <%= link_to 'Edit', edit_entry_path(@entry) %> |
+  <%= link_to 'Destroy', @entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </br>
+  </br>
 </div>
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', :back %>

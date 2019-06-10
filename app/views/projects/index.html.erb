@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+</br>
+<% @projects.each do |project| %>
+  <%= simple_format project.title, {}, wrapper_tag: 'b' %>
+  <%= simple_format project.description %>
+  <b>Owner:</b></br>
+  <%= project.owner.email %>
+  </br>
+  </br>
+  <b>Members:</b></br>
+  <% project.users.each do |user| %>
+    <%= user.email %>
+    </br>
+  <% end %>
+  </br> 
+  <b>Entries:</b></br>
+  <% project.entries.each do |entry| %>
+    <%= link_to entry.title, entry %></br>
+  <% end %>
+  </br>
+  <%= link_to 'Show Project', project %>
+  </br>
+  </br>
+<% end %>
