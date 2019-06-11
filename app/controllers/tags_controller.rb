@@ -7,7 +7,6 @@ class TagsController < ApplicationController
       entry.tags
     end
     @tags.flatten!.uniq!
-    binding.pry
   end
   def show
     @tag = params[:tag]
