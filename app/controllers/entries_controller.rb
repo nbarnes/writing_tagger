@@ -44,7 +44,8 @@ class EntriesController < ApplicationController
   # GET /entries/1/edit
   def edit
     @entry = Entry.find(params[:id])
-    head :unauthorized and return unless @entry.user == current_user
+    @member_users = User.joins({:projects => :entries}).where(:users => {id: current_user.id}).uniq
+    head :unauthorized and return unless (@entry.user == current_user || @member_users.include?(current_user))
   end
 
   # POST /entries
@@ -61,7 +62,8 @@ class EntriesController < ApplicationController
   # PATCH/PUT /entries/1
   def update
     @entry = Entry.find(params[:id])
-    head :unauthorized and return unless @entry.user == current_user
+    @member_users = User.joins({:projects => :entries}).where(:users => {id: current_user.id}).uniq
+    head :unauthorized and return unless (@entry.user == current_user || @member_users.include?(current_user))
     if @entry.update(entry_params)
       redirect_to @entry, notice: 'Entry was successfully updated.'
     else
