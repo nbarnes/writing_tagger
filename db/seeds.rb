@@ -23,7 +23,7 @@ entries = Array.new(80) do
   e
 end
 projects = Array.new(20) do
-  p = Project.create({ title: Faker::Book.title, description: Faker::Lorem.sentence, owner: users.sample })
+  p = Project.create({ title: Faker::Coffee.blend_name, description: Faker::Lorem.sentence, owner: users.sample })
   p.users << users.sample(3)
   p.entries << entries.sample(5)
   p.save!

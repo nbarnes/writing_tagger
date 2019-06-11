@@ -17,6 +17,15 @@
   <% end %>
   </br>
   </br>
+  <b>Owner:</b>
+  <%= @entry.user.email %>
+  </br>
+  </br>
+  <b>Included In Projects:</b></br>
+  <% @entry.projects.each do |project| %>
+    <%= link_to project.title, project %></br>
+  <% end %>
+  </br>
   <%= link_to 'Edit', edit_entry_path(@entry) %> |
   <%= link_to 'Destroy', @entry, method: :delete, data: { confirm: 'Are you sure?' } %>
   </br>

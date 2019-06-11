@@ -82,3 +82,7 @@ div.actions {
 label {
   display: block;
 }
+
+.indent {
+  margin-left: 1em;
+}

@@ -3,7 +3,9 @@ class EntriesController < ApplicationController
   # GET /entries
   def index
     @entries = [] and return unless current_user
-    @entries = Entry.joins({:projects => :users}).where(:entries => {user_id: current_user.id}).or(Entry.joins({:projects => :users}).where(:users => {id: current_user.id})).distinct(:entries => :id)
+    @entries = Entry.where(user_id: current_user.id)
+    member_entries = Entry.joins({:projects => :users}).where(:users => {id: current_user.id}).distinct(:entries => :id)
+    @entries += member_entries
     unless params[:content_search].blank?
       @entries = Entry.search_for params[:content_search]
     end

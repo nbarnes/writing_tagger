@@ -24,6 +24,26 @@
           <%= link_to tag, tag_path(tag) %>
         <% end %>
         </br>
+        <b>Owner:</b>
+        <%= entry.user.email %>
+        </br>
+        </br>
+
+        <b>Included In Projects:</b></br>
+        <div class='indent'>
+          <% entry.projects.each do |project| %>
+            <%= link_to project.title, project %></br>
+            <div class='indent'>
+              <b>Members:</b></br>
+              <% project.users.each do |user| %>
+              <%= user.email %></br>
+              <% end %>
+              </br>
+            </div>
+          <% end %>
+        </div>
+        </br>
+
         <%= link_to 'Show', entry %> |
         <%= link_to 'Edit', edit_entry_path(entry) %> |
         <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
