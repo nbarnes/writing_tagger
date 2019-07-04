@@ -7,8 +7,6 @@ class EntriesController < ApplicationController
     owner_entries = Entry.joins({:projects => :users}).where(:entries => {user_id: current_user.id}).distinct(:entries => :id)
     member_entries = Entry.joins({:projects => :users}).where(:users => {id: current_user.id}).distinct(:entries => :id)
     @entries = owner_entries.or(member_entries)
-    
-    binding.pry
     unless params[:content_search].blank?
       @entries = Entry.search_for params[:content_search]
     end
@@ -33,9 +31,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/1
   def show
-    @entry = Entry.find(params[:id])
-    @member_users = User.joins({:projects => :entries}).where(:users => {id: current_user.id}).uniq
-    head :unauthorized and return unless (@entry.user == current_user || @member_users.include?(current_user))
+    authorize_entry(params[:id])
   end
 
   # GET /entries/new
@@ -46,9 +42,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/1/edit
   def edit
-    @entry = Entry.find(params[:id])
-    @member_users = User.joins({:projects => :entries}).where(:users => {id: current_user.id}).uniq
-    head :unauthorized and return unless (@entry.user == current_user || @member_users.include?(current_user))
+    authorize_entry(params[:id])
   end
 
   # POST /entries
@@ -64,9 +58,7 @@ class EntriesController < ApplicationController
 
   # PATCH/PUT /entries/1
   def update
-    @entry = Entry.find(params[:id])
-    @member_users = User.joins({:projects => :entries}).where(:users => {id: current_user.id}).uniq
-    head :unauthorized and return unless (@entry.user == current_user || @member_users.include?(current_user))
+    authorize_entry(params[:id])
     if @entry.update(entry_params)
       redirect_to @entry, notice: 'Entry was successfully updated.'
     else
@@ -83,6 +75,12 @@ class EntriesController < ApplicationController
   end
 
   private
+
+  def authorize_entry(id)
+    @entry = Entry.find(params[:id])
+    @member_users = User.joins({:projects => :entries}).where(:users => {id: current_user.id}).uniq
+    head :unauthorized and return unless (@entry.user == current_user || @member_users.include?(current_user))
+  end
 
     # Only allow a trusted parameter "white list" through.
     def entry_params
