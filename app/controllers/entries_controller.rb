@@ -4,8 +4,7 @@ class EntriesController < ApplicationController
   def index
     @entries = [] and return unless current_user
     owner_entries = Entry.joins({:projects => :users}).where(:entries => {user_id: current_user.id}).distinct(:entries => :id)
-    member_entries = Entry.joins({:projects => :users}).where(:users => {id: current_user.id}).distinct(:entries => :id)
-    @entries = owner_entries.or(member_entries)
+    @entries = owner_entries.or(current_user.member_entries)
     unless params[:content_search].blank?
       @entries = Entry.search_for params[:content_search]
     end
@@ -77,8 +76,7 @@ class EntriesController < ApplicationController
 
   def authorize_entry(id)
     @entry = Entry.find(params[:id])
-    member_entries = Entry.joins({:projects => :users}).where(:users => {id: current_user.id}).distinct(:entries => :id)
-    head :unauthorized and return unless (@entry.user == current_user || member_entries.include?(@entry))
+    head :unauthorized and return unless (@entry.user == current_user || current_user.member_entries.include?(@entry))
   end
 
     # Only allow a trusted parameter "white list" through.
