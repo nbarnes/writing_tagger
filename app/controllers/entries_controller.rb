@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
   # GET /entries
   def index
     @entries = [] and return unless current_user
-    @entries = current_user.owner_entries.or(current_user.member_entries)
+    @entries = current_user.accessible_entries
     unless params[:content_search].blank?
       @entries = Entry.search_for params[:content_search]
     end

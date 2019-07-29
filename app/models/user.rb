@@ -17,4 +17,8 @@ class User < ApplicationRecord
     Entry.joins({:projects => :users}).where(:users => {id: id}).distinct(:entries => :id)
   end
 
+  def accessible_entries
+    owner_entries.or(member_entries)
+  end
+
 end
