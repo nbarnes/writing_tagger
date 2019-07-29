@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-
+# User.create({email: 'nbarnes@gmail.com', password: 'password', admin: true}).save!
 tags = Array.new(20) { Faker::Verb.ing_form }
 users = Array.new(20) { User.create({ email: Faker::Internet.email, password: 'password' }) }
 entries = Array.new(80) do

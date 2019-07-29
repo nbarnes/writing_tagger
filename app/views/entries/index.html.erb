@@ -11,7 +11,7 @@
   </br>
   <% @entries.each do |entry| %>
     <div class='entry'>
-      <%= simple_format entry.title, { class: 'entry-title' }, { wrapper_tag: 'div' } %>
+      <%= link_to entry.title, entry_path(entry), class: "title" %>
       <div class='entry_body'>
         <b>
           <%= simple_format entry.description %>

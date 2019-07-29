@@ -1,23 +1,27 @@
 <p id="notice"><%= notice %></p>
 </br>
 <% @projects.each do |project| %>
-  <%= simple_format project.title, {}, wrapper_tag: 'b' %>
+  <%= simple_format project.title, { class: 'title' }, { wrapper_tag: 'div' } %>
   <%= simple_format project.description %>
-  <b>Owner:</b></br>
+  <b>Owner:</b>
   <%= project.owner.email %>
   </br>
   </br>
   <b>Members:</b></br>
+  <div class='indent'>
   <% project.users.each do |user| %>
     <%= user.email %>
     </br>
   <% end %>
-  </br> 
-  <b>Entries:</b></br>
-  <% project.entries.each do |entry| %>
-    <%= link_to entry.title, entry %></br>
-  <% end %>
+  </div>
   </br>
+  <b>Entries:</b></br>
+  <div class='indent'>
+    <% project.entries.each do |entry| %>
+      <%= link_to entry.title, entry %></br>
+    <% end %>
+    </br>
+  </div>
   <%= link_to 'Show Project', project %>
   </br>
   </br>

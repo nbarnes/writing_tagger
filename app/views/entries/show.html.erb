@@ -3,7 +3,7 @@
 <%= link_to 'Return to Index', entries_path %></br></br>
 
 <div class='entry'>
-  <%= simple_format @entry.title, { class: 'entry-title' }, { wrapper_tag: 'div' } %>
+  <%= simple_format @entry.title, { class: 'title' }, { wrapper_tag: 'div' } %>
   <b><%= simple_format @entry.description %></b>
   <%= simple_format @entry.content, class: 'entry-content' %>
   <% unless @entry.notes.blank? %>
@@ -23,7 +23,13 @@
   </br>
   <b>Included In Projects:</b></br>
   <% @entry.projects.each do |project| %>
-    <%= link_to project.title, project %></br>
+    <b><%= link_to project.title, project %></b></br>
+    <div class='indent'>
+      <b>Members:</b></br>
+      <% project.users.each do |user| %>
+      <%= user.email %></br>
+      <% end %>
+    </div>
   <% end %>
   </br>
   <%= link_to 'Edit', edit_entry_path(@entry) %> |
