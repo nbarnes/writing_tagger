@@ -1,12 +1,16 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.where(owner_id: current_user.id)
+    @projects = [] and return unless current_user
+    owner_projects = Project.joins(:users).where(owner_id: current_user.id).distinct(:project => :id)
+    member_projects = Project.joins(:users).where(:users => {id: current_user.id}).distinct(:project => :id)
+    @projects = owner_projects.or(member_projects)
   end
 
   def show
     @project = Project.find(params[:id])
-    head :unauthorized and return unless @project.owner == current_user
+    @member_users = User.joins({:projects => :entries}).where(:users => {id: current_user.id}).uniq
+    head :unauthorized and return unless (@project.owner == current_user || @member_users.include?(current_user))
   end
 
   def new
