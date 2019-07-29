@@ -1,16 +1,16 @@
 # NO LIVE DEPLOY YET
 
-# Writing Tagger
+# Taggr
 
-Writing Tagger is a authorship tool allowing for robust links between small-ish chunks of text.
+Taggr is a authorship tool allowing for robust links between small-ish chunks of text, ideal for writers and world-builders.
 
 # TECHNOLOGY
 
-Writing Tagger is built on Ruby on Rails 5. Source control and versioning is done at Github.
+Taggr is built on Ruby on Rails 5. Source control and versioning is done at Github.
 
 # WHERE
 
-Github repo is at https://github.com/nbarnes/writing_tagger.
+Github repo is at https://github.com/nbarnes/taggr.
 
 # CONTRIBUTOR COVENANT
 
