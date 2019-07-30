@@ -1,0 +1,90 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    window.onbeforeunload = function() { return true; };
+    document.getElementsByTagName("form")[0].onsubmit = function(e) {
+      window.onbeforeunload = null;
+      return true;
+    };
+  });
+</script>
+
+<%= form_with model: project, local: true do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label :title %>
+  <%= form.text_field :title, size: 90 %>
+  </br>
+  <%= form.label :description %>
+  <%= form.text_area :description, cols: 60, rows: 10 %>
+  </br>
+
+  <div id='entries-area'>
+    <input name="project[entry_ids][]" type="hidden">
+    <%= form.label :entries %>
+    <% @project.entries.each do |the_entry| %>
+      <div class='entry-option'>
+        <select name="project[entry_ids][]">
+          <% @entries.each do |entry| %>
+            <option value="<%= entry.id %>" <%= the_entry.title == entry.title ? 'selected' : nil %>><%= entry.title %></option>
+          <% end %>
+        </select>
+        <button class="remove-entry-button" type="button">Remove This Entry</button>
+      </div>
+    <% end %>
+  </div>
+  <button id='add-entry-button' type="button">Add Entry</button>
+  </br>
+
+  <div id='users-area'>
+    <input name="project[user_ids][]" type="hidden">
+    <%= form.label :users %>
+    <% @project.users.each do |the_user| %>
+      <div class='user-option'>
+        <select name="project[user_ids][]">
+          <% @users.each do |user| %>
+            <option value="<%= user.id %>" <%= the_user.email == user.email ? 'selected' : nil %>><%= user.email %></option>
+          <% end %>
+        </select>
+        <button class="remove-user-button" type="button">Remove This User</button>
+      </div>
+    <% end %>
+  </div>
+  <button id='add-user-button' type="button">Add User</button>
+
+  </br>
+
+  <template id="entry-template">
+    <div class='entry-option'>
+      <select name="project[entry_ids][]">
+        <% @entries.each do |entry| %>
+          <option value="<%= entry.id %>"><%= entry.title %></option>
+        <% end %>
+      </select>
+      <button class="remove-entry-button" type="button">Remove This Entry</button>
+    </div>
+  </template>
+
+  <template id="user-template">
+    <div class='user-option'>
+      <select name="project[user_ids][]">
+        <% @users.each do |user| %>
+          <option value="<%= user.id %>"><%= user.email %></option>
+        <% end %>
+      </select>
+      <button class="remove-user-button" type="button">Remove This User</button>
+    </div>
+  </template>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

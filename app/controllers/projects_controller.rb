@@ -2,8 +2,8 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = [] and return unless current_user
-    owner_projects = Project.joins(:users).where(owner_id: current_user.id).distinct(:project => :id)
-    member_projects = Project.joins(:users).where(:users => {id: current_user.id}).distinct(:project => :id)
+    owner_projects = Project.left_outer_joins(:users).where(owner_id: current_user.id).distinct(:project => :id)
+    member_projects = Project.left_outer_joins(:users).where(:users => {id: current_user.id}).distinct(:project => :id)
     @projects = owner_projects.or(member_projects)
   end
 
@@ -14,17 +14,22 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    head :unauthorized and return unless current_user
     @project = Project.new
+    @entries = current_user.accessible_entries
+    @users = User.all
   end
 
   def edit
     @project = Project.find(params[:id])
+    @entries = current_user.accessible_entries
+    @users = User.all
     head :unauthorized and return unless @project.owner == current_user
   end
 
   def create
     head :unauthorized and return unless current_user
-    @project = Project.new(project_params.merge(user_id: current_user.id))
+    @project = Project.new(project_params.merge(owner_id: current_user.id))
     if @project.save
       redirect_to @project, notice: 'Project was successfully created.'
     else
@@ -34,7 +39,7 @@ class ProjectsController < ApplicationController
   
   def update
     @project = Project.find(params[:id])
-    head :unauthorized and return unless @project.user == current_user
+    head :unauthorized and return unless @project.owner == current_user
     if @project.update(project_params)
       redirect_to @project, notice: 'Project was successfully updated.'
     else
@@ -53,7 +58,7 @@ class ProjectsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def project_params
-      params.fetch(:project, {}).permit(:title, :description)
+      params.fetch(:project, {}).permit(:title, :description, :entry_ids => [], :user_ids => [])
     end
 
 end
